@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Webroot Login</string>
+    <string name="welcome">Welcome</string>
+
+    <!-- Strings related to login -->
+    <string name="email_username">Enter an email for your username</string>
+
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="your_email">Your Email</string>
+    <string name="update_password">Change your password</string>
+    <string name="update">Update</string>
+
+    <string name="action_sign_in">Sign in </string>
+    <string name="action_sign_up">No Account? Sign up.</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">The password should contain at least one small letter, one capital letter, one digit and be at least 8 characters long.</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."</string>
+    <string name="create_login">Create Login</string>
+
+    <string name="appWelcome">Welcome to Webroot</string>
+    <string name="choice">What would you like to do today?</string>
+    <string name="thanks">Thanks for joining Webroot.</string>
+
+
+    <string name="sign_up_title">Your Profile</string>
+
+
+    <string name="signedUp">Thank you for signing up with Webroot.</string>
+    <string name="passwordChanged">Your password has been updated.</string>
+
+    <string name="title_activity_profile">User Profile</string>
+    <string name="title_activity_logged_in">Webroot</string>
+
+
+</resources>

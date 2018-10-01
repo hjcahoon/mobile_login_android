@@ -43,10 +43,10 @@ class LoginActivity : FragmentActivity(), LoaderManager.LoaderCallbacks<Cursor> 
         // Set up the login form.
         populateAutoComplete()
 
-        password.afterTextChanged { email_sign_in_button.isEnabled = if (it.length > 7) true else false }
+        password.afterTextChanged { email_sign_in_button.isEnabled = if (it.length >= 8) true else false }
 
         password.setOnEditorActionListener(TextView.OnEditorActionListener { _, id, _ ->
-            if (id == EditorInfo.IME_ACTION_DONE || id == EditorInfo.IME_NULL) {
+            if (id == EditorInfo.IME_ACTION_SEND || id == EditorInfo.IME_NULL) {
                 attemptLogin()
                 return@OnEditorActionListener true
             }

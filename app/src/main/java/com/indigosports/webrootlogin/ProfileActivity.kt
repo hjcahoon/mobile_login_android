@@ -6,6 +6,7 @@ import android.text.Editable
 import android.text.TextUtils
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -31,19 +32,17 @@ class ProfileActivity : AppCompatActivity() {
 
         }
 
-        password_input.setOnEditorActionListener { v, actionId, event ->
-            return@setOnEditorActionListener when (actionId) {
-                EditorInfo.IME_ACTION_SEND -> {
-                    if (isValidUserNameAndPassword()) {
-                        addUser()
-                        true
-                    } else {
-                        false
-                    }
+        password_input.afterTextChanged { create_profile.isEnabled = if (it.length >= 8) true else false  }
+
+        password_input.setOnEditorActionListener(TextView.OnEditorActionListener { _, id, _ ->
+            if (id == EditorInfo.IME_ACTION_SEND || id == EditorInfo.IME_NULL) {
+                if (isValidUserNameAndPassword() ) {
+                    addUser()
                 }
-                else -> false
+                return@OnEditorActionListener true
             }
-        }
+            false
+        })
 
         create_profile.setOnClickListener{
             if (isValidUserNameAndPassword() ) {
@@ -89,8 +88,8 @@ class ProfileActivity : AppCompatActivity() {
         val passwordStr = password_input.text.toString()
 
         val prefs = AppSharedPreferences(this)
-
-        var message = ""
+        
+        val message:String
         if (!prefs.prefsContains(emailStr)) {
             // NEW
             prefs.setString(emailStr, passwordStr)
@@ -105,10 +104,5 @@ class ProfileActivity : AppCompatActivity() {
 
         finish()
 
-
-
-//        return if (prefs.prefsContains(mEmail)) {
-//            if (prefs.getString(mEmail, "") == mPassword) "success" else "Username and password do not match."
-//        } else "Username not found."
     }
 }
